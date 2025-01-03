@@ -15,7 +15,7 @@ const theme = createTheme({
       paper: "#ffffff", // Cor de fundo de cards
     },
     text: {
-      primary: "#215A6D",
+      primary: "#ffffff",
       secondary: "#3CA2A2",
     },
   },

@@ -4,6 +4,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import CardItem from "../components/CardItem";
 import { IonContent, IonPage } from "@ionic/react";
 import BottomNav from "../components/BottomNav";
+import CustomCard from "../components/IndicationCard";
 
 interface CardData {
   image: string;
@@ -43,7 +44,7 @@ const Home: React.FC = () => {
               <Typography color="#215A6D" variant="h4" fontWeight="bold">
                 Olá, João
               </Typography>
-              <Typography variant="subtitle1" color={"textPrimary"}>
+              <Typography variant="subtitle1" color={"primary"}>
                 É um prazer te ter por aqui!
               </Typography>
             </Box>
@@ -76,30 +77,37 @@ const Home: React.FC = () => {
               description="Faça uma avaliação para você."
             />
           </div>
-
           {/* Cuidando de você */}
           <Typography variant="h5" fontWeight="bold" gutterBottom>
             Cuidando de você
           </Typography>
-          <Grid container spacing={2} mb={4}>
-            {cardsData.map((card, index) => (
-              <Grid item xs={6} sm={4} md={3} key={index}>
-                <CardItem {...card} />
-              </Grid>
-            ))}
-          </Grid>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'nowrap',
+              overflowX: 'auto', 
+              gap: '16px', 
+              padding: '16px', 
+              scrollbarWidth: 'thin', 
+            }}
+          >
+            <CustomCard
+            image="https://via.placeholder.com/300x140"
+            link=""
+            title="Piquenique"
+            />
+            <CustomCard
+            image="https://via.placeholder.com/300x140"
+            link=""
+            title="Piquenique"
+            />
+            <CustomCard
+            image="https://via.placeholder.com/300x140"
+            link=""
+            title="Piquenique"
+            />
+          </div>
 
-          {/* Indicações para você */}
-          <Typography variant="h5" fontWeight="bold" gutterBottom>
-            Indicações para você
-          </Typography>
-          <Grid container spacing={2}>
-            {cardsData.map((card, index) => (
-              <Grid item xs={6} sm={4} md={3} key={index}>
-                <CardItem {...card} />
-              </Grid>
-            ))}
-          </Grid>
         </Box>
       </IonContent>
       <BottomNav />
