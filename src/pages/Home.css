@@ -1,0 +1,15 @@
+/* Estilo do menu inferior */
+ion-tab-bar {
+  --background: linear-gradient(135deg, #0072ff, #00c6ff);
+  --color: white;
+  --color-selected: #ffd700; /* Cor quando a aba está selecionada */
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+ion-tab-button {
+  font-size: 12px;
+}
+
+ion-tab-button ion-icon {
+  font-size: 22px;
+}
