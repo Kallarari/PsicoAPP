@@ -1,9 +1,19 @@
-import type { CapacitorConfig } from '@capacitor/cli';
+import type { CapacitorConfig } from "@capacitor/cli";
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'my-psychology-app',
-  webDir: 'dist'
+  appId: "io.ionic.starter",
+  appName: "my-psychology-app",
+  webDir: "dist",
+  bundledWebRuntime: false,
+  ios: {},
+  android: {},
+  plugins: {
+    LocalNotifications: {
+      smallIcon: "ic_stat_icon_config_sample",
+      iconColor: "#488AFF",
+      sound: "beep.wav",
+    },
+  },
 };
 
 export default config;

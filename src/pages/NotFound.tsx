@@ -25,7 +25,7 @@ const NotFound: React.FC = () => {
             padding: 2,
           }}
         >
-          <Typography variant="h5" color="textSecondary" paragraph>
+          <Typography variant="h5" color="textSecondary">
             Desculpe, não conseguimos encontrar a página que você está procurando.
           </Typography>
           <Button

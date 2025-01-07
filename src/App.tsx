@@ -39,6 +39,7 @@ import Routes from "./routes/routes";
 import NotFound from "./pages/NotFound";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "./theme/theme";
+import UserProfile from "./pages/UserEdition";
 
 setupIonicReact();
 
@@ -52,7 +53,7 @@ const App: React.FC = () => (
       <Route path="/home" component={Home} />
       <Route path="/agendamento" component={NotFound} />
       <Route path="/indicacoes" component={NotFound} />
-      <Route path="/perfil" component={NotFound} />
+      <Route path="/perfil" component={UserProfile} />
     </IonReactRouter>
   </ThemeProvider>
 );

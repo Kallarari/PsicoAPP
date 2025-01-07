@@ -41,7 +41,6 @@ const CustomCard: React.FC<CardProps> = ({ image, title, link }) => {
   }));
   const StyledTypography = styled(Typography)(({ theme }) => ({
     color: "white",
-    backgroundColor: "red",
   }));
   return (
     <StyledCard>
