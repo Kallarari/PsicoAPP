@@ -2,6 +2,7 @@ import React from "react";
 import { Redirect, Route } from "react-router";
 import Home from "../pages/Home";
 import BottomNav from "../components/BottomNav";
+import Diary from "../pages/Diary/Diary";
 
 // import { Container } from './styles';
 
@@ -21,6 +22,9 @@ const Routes: React.FC = () => {
       </Route>
       <Route path="/perfil" exact>
         <Home />
+      </Route>
+      <Route path="/diary" exact>
+        <Diary />
       </Route>
       {/* Redirecionamento padrão */}
       <Redirect from="/" to="/home" />

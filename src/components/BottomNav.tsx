@@ -62,11 +62,11 @@ const BottomNav: React.FC = () => {
         </IonRouterLink>
       </IonTabButton>
 
-      <IonTabButton tab="indicacoes">
-        <IonRouterLink routerLink="/indicacoes">
+      <IonTabButton tab="diary">
+        <IonRouterLink routerLink="/diary">
           <StyledIcon icon={list} />
           <Typography variant="body2" color="primary.light">
-            Indicações
+            Diário
           </Typography>
         </IonRouterLink>
       </IonTabButton>

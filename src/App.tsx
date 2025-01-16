@@ -51,6 +51,7 @@ const App: React.FC = () => (
         <Redirect to="/home" />
       </Route>
       <Route path="/home" component={Home} />
+      <Route path="/diary" component={Diary} />
       <Route path="/agendamento" component={NotFound} />
       <Route path="/indicacoes" component={NotFound} />
       <Route path="/perfil" component={UserProfile} />
