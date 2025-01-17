@@ -3,6 +3,7 @@ import { Redirect, Route } from "react-router";
 import Home from "../pages/Home";
 import BottomNav from "../components/BottomNav";
 import Diary from "../pages/Diary/Diary";
+import Scheduling from "../pages/Scheduling";
 
 // import { Container } from './styles';
 
@@ -15,7 +16,7 @@ const Routes: React.FC = () => {
         <div>profile</div>
       </Route>
       <Route path="/agendamento" exact>
-        <div>agendamento</div>
+        <Scheduling />
       </Route>
       <Route path="/indicacoes" exact>
         <div>indicacoes</div>

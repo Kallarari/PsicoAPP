@@ -40,10 +40,14 @@ import NotFound from "./pages/NotFound";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "./theme/theme";
 import UserProfile from "./pages/UserEdition";
+import Scheduling from "./pages/Scheduling";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 setupIonicReact();
 
 const App: React.FC = () => (
+  <LocalizationProvider dateAdapter={AdapterDayjs}>
   <ThemeProvider theme={theme}>
     <CssBaseline />
     <IonReactRouter>
@@ -52,11 +56,12 @@ const App: React.FC = () => (
       </Route>
       <Route path="/home" component={Home} />
       <Route path="/diary" component={Diary} />
-      <Route path="/agendamento" component={NotFound} />
+      <Route path="/agendamento" component={Scheduling} />
       <Route path="/indicacoes" component={NotFound} />
       <Route path="/perfil" component={UserProfile} />
     </IonReactRouter>
   </ThemeProvider>
+  </LocalizationProvider>
 );
 
 export default App;
