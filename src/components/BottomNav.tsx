@@ -23,6 +23,7 @@ const StyledTabBar = styled(IonTabBar)(({ theme }) => ({
   opacity: 1, // Opacidade da imagem de fundo
   borderRadius:'10px 10px 0 0',
   padding:'10px 0px',
+  mixBlendMode: "normal",
 
   "&:before": {
     content: "''",
@@ -32,10 +33,11 @@ const StyledTabBar = styled(IonTabBar)(({ theme }) => ({
     width: "100%",
     height: "100%",
     backgroundColor: "#004961",
-    opacity: 0.8, // Opacidade da camada azul
+    opacity: 1, // Opacidade da camada azul
     mixBlendMode: "multiply", // Modo de mesclagem
   },
 }));
+
 const StyledIcon = styled(IonIcon)`
   color: white;
   font-size: 20px;

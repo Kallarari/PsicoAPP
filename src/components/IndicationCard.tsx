@@ -17,7 +17,7 @@ interface CardProps {
 const CustomCard: React.FC<CardProps> = ({ image, title, link }) => {
   const StyledCard = styled(Card)(({ theme }) => ({
     position: "relative",
-    maxWidth: 345,
+    width: "200px",
     borderRadius: 16,
     marginBottom: 16,
     backgroundImage: `url('/fundo.png')`,
@@ -52,17 +52,24 @@ const CustomCard: React.FC<CardProps> = ({ image, title, link }) => {
           alignContent: "center",
           position: "relative",
           flexDirection: "column",
-          justifyContent: "center",
-          width:'100%'
+          justifyContent: "space-between",
+          width: "100%",
         }}
       >
         <CardMedia
           component="img"
           height="140"
-          image={image}
+          src={image}
           alt="Imagem do card"
         />
-        <CardContent>
+        <CardContent
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            height: "100%",
+          }}
+        >
           <StyledTypography gutterBottom variant="h5">
             {title}
           </StyledTypography>

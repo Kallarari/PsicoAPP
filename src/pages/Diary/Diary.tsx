@@ -7,6 +7,7 @@ import {
   IonToolbar,
   IonButton,
   IonText,
+  IonRouterLink,
 } from "@ionic/react";
 import { Box, IconButton, Typography } from "@mui/material";
 import BottomNav from "../../components/BottomNav";
@@ -49,24 +50,27 @@ const Diary: React.FC = () => {
   return (
     <IonPage>
       <IonContent>
-        <Box bgcolor={"white"} sx={{height:'130%'}}>
+        <Box bgcolor={"white"} sx={{ height: "130%" }}>
           <HeaderSection>
-            <div
-              style={{
-                backgroundColor: "transparent",
-                zIndex: 3,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "start",
-                position: "relative",
-                width: "95%",
-                paddingLeft: "5%",
-                height: "100%",
-                gap: "10px",
-              }}
-            >
-              <ArrowBackIcon /> Voltar
-            </div>
+            <IonRouterLink routerLink="/home">
+              <div
+                style={{
+                  backgroundColor: "transparent",
+                  zIndex: 3,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "start",
+                  position: "relative",
+                  width: "95%",
+                  paddingLeft: "5%",
+                  height: "100%",
+                  gap: "10px",
+                  color:'white'
+                }}
+              >
+                <ArrowBackIcon /> Voltar
+              </div>
+            </IonRouterLink>
           </HeaderSection>
           <div
             style={{
@@ -75,6 +79,7 @@ const Diary: React.FC = () => {
               gap: "20px",
               display: "flex",
               flexDirection: "column",
+              backgroundColor: "#fff",
             }}
           >
             <SleepComponent />

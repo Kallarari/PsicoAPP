@@ -2,7 +2,13 @@ import React from "react";
 import { Box, Typography, Grid, IconButton, useTheme } from "@mui/material";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import CardItem from "../components/CardItem";
-import { IonContent, IonPage } from "@ionic/react";
+import {
+  IonContent,
+  IonNav,
+  IonNavLink,
+  IonPage,
+  IonRouterLink,
+} from "@ionic/react";
 import BottomNav from "../components/BottomNav";
 import CustomCard from "../components/IndicationCard";
 
@@ -14,16 +20,30 @@ interface CardData {
 
 const Home: React.FC = () => {
   const theme = useTheme();
+
   const cardsData: CardData[] = [
     {
       title: "Fazer piquenique",
       description: "Uma ótima forma de relaxar!",
-      image: "https://via.placeholder.com/300x140",
+      image: "/svgImageExample.png",
     },
     {
-      title: "Meditação",
+      title: "Ioga e Meditação",
       description: "Acalme sua mente.",
-      image: "https://via.placeholder.com/300x140",
+      image: "/svgImageExample.png",
+    },
+  ];
+
+  const psicologicCard: CardData[] = [
+    {
+      title: "Exercício de respiração",
+      description: "Uma ótima forma de relaxar!",
+      image: "/svgImageExample.png",
+    },
+    {
+      title: "Atividade pela manhã",
+      description: "Acalme sua mente.",
+      image: "/svgImageExample.png",
     },
   ];
 
@@ -56,22 +76,26 @@ const Home: React.FC = () => {
           {/* Atalhos */}
           <div
             style={{
-              display: 'flex',
-              flexWrap: 'nowrap',
-              overflowX: 'auto', 
-              gap: '16px', 
-              padding: '16px', 
-              scrollbarWidth: 'thin', 
+              display: "flex",
+              flexWrap: "nowrap",
+              overflowX: "auto",
+              gap: "16px",
+              padding: "16px",
+              scrollbarWidth: "thin",
             }}
           >
-            <CardItem
-              title="Agendamento"
-              description="Marcar horário com seu terapeuta"
-            />
-            <CardItem
-              title="Relatório diário"
-              description="Como foi o seu dia hoje?"
-            />
+            <IonRouterLink routerLink="/agendamento">
+              <CardItem
+                title="Agendamento"
+                description="Marcar horário com seu terapeuta"
+              />
+            </IonRouterLink>
+            <IonRouterLink routerLink="/diary">
+              <CardItem
+                title="Relatório diário"
+                description="Como foi o seu dia hoje?"
+              />
+            </IonRouterLink>
             <CardItem
               title="Autoavaliação"
               description="Faça uma avaliação para você."
@@ -83,31 +107,41 @@ const Home: React.FC = () => {
           </Typography>
           <div
             style={{
-              display: 'flex',
-              flexWrap: 'nowrap',
-              overflowX: 'auto', 
-              gap: '16px', 
-              padding: '16px', 
-              scrollbarWidth: 'thin', 
+              display: "flex",
+              flexWrap: "nowrap",
+              overflowX: "auto",
+              gap: "16px",
+              padding: "16px",
+              scrollbarWidth: "thin",
             }}
           >
-            <CustomCard
-            image="https://via.placeholder.com/300x140"
-            link=""
-            title="Piquenique"
-            />
-            <CustomCard
-            image="https://via.placeholder.com/300x140"
-            link=""
-            title="Piquenique"
-            />
-            <CustomCard
-            image="https://via.placeholder.com/300x140"
-            link=""
-            title="Piquenique"
-            />
+            {cardsData.map((item, index) => (
+              <IonRouterLink key={index} routerLink="/indicacoes/teste">
+                <CustomCard image={item.image} link={""} title={item.title} />
+              </IonRouterLink>
+            ))}
           </div>
 
+          {/* Cuidando de você */}
+          <Typography variant="h5" fontWeight="bold" gutterBottom>
+            Indicações do Psicólogo
+          </Typography>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "nowrap",
+              overflowX: "auto",
+              gap: "16px",
+              padding: "16px",
+              scrollbarWidth: "thin",
+            }}
+          >
+            {psicologicCard.map((item, index) => (
+              <IonRouterLink key={index} routerLink="/indicacoes/teste">
+                <CustomCard image={item.image} link={""} title={item.title} />
+              </IonRouterLink>
+            ))}
+          </div>
         </Box>
       </IonContent>
       <BottomNav />

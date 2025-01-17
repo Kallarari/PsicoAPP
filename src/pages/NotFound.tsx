@@ -8,7 +8,7 @@ const NotFound: React.FC = () => {
 
   // Função para voltar para a página principal
   const goHome = () => {
-    history.push('/'); // Redireciona para a página inicial
+    history.push('/home'); // Redireciona para a página inicial
   };
 
   return (

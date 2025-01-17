@@ -43,6 +43,7 @@ import UserProfile from "./pages/UserEdition";
 import Scheduling from "./pages/Scheduling";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import IndicationPage from "./pages/IndicationPage";
 
 setupIonicReact();
 
@@ -59,6 +60,7 @@ const App: React.FC = () => (
       <Route path="/agendamento" component={Scheduling} />
       <Route path="/indicacoes" component={NotFound} />
       <Route path="/perfil" component={UserProfile} />
+      <Route path="/indicacoes/*" component={IndicationPage} />
     </IonReactRouter>
   </ThemeProvider>
   </LocalizationProvider>

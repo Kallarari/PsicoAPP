@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IonIcon, IonPage } from "@ionic/react";
+import { IonIcon, IonPage, IonRouterLink } from "@ionic/react";
 import {
   AppBar,
   Avatar,
@@ -114,7 +114,13 @@ const UserProfile: React.FC = () => {
             width: "100%",
           }}
         >
-          <StyledIcon icon={arrowBack} />
+          <IonRouterLink routerLink="/home">
+            <div
+              style={{ width: "95vw", display: "flex", alignItems: "start" }}
+            >
+              <StyledIcon icon={arrowBack} />
+            </div>
+          </IonRouterLink>
           <Avatar sx={{ width: 100, height: 100 }} />
           <div style={{ display: "flex", gap: 10, margin: "20px 0px" }}>
             <Typography color={"textPrimary"}>{userName}</Typography>
@@ -124,21 +130,6 @@ const UserProfile: React.FC = () => {
         </div>
       </HeaderSection>
       <div style={{ padding: "20px" }}>
-        <input
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-        ></input>
-        <button color="inherit" onClick={handleSelectImage}>
-          Selecionar imagem
-        </button>
-        <img src={imageWebPath} alt="Imagem do usuário webPath" />
-        <img src={imagePath} alt="Imagem do usuário" />
-        <button color="primary"  onClick={scheduleNotification}>
-          push notification
-        </button>
-        <button color="inherit" onClick={() => requestPermissions}>
-          RequestPermissions
-        </button>
       </div>
       <BottomNav />
     </IonPage>
