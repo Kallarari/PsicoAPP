@@ -12,6 +12,7 @@ import { colorFill } from "ionicons/icons";
 import SentimentNeutralIcon from "@mui/icons-material/SentimentNeutral";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
+import DiarysPageComponents from "./DiaryCardComponent";
 
 const SleepComponent: React.FC = () => {
   const [isDrowerOpen, setIsDrowerOpen] = useState(false);
@@ -31,32 +32,8 @@ const SleepComponent: React.FC = () => {
     return awakeHour - sleepHour;
   }
 
-  const Container = styled(Box)(({ theme }) => ({
-    display: "grid",
-    gridTemplateColumns:'1fr 3fr 1fr',
-    boxShadow: "0 2px 2px rgba(0, 0, 0, 0.1)",
-    alignItems: "center",
-    padding: "16px",
-    borderRadius: "8px",
-    background: "linear-gradient(90deg, #ffffff, #d1e8f7)",
-  }));
-
-  const Title = styled(Typography)(({ theme }) => ({
-    margin: "0",
-    fontSize: "18px",
-    fontWeight: "bold",
-    color: "#333",
-  }));
-
-  const Description = styled(Typography)(({ theme }) => ({
-    margin: "0",
-    fontSize: "14px",
-    color: "#666",
-  }));
-
   const StyledTextField = styled(TextField)(({ theme }) => ({
-    
-    width:'100%',
+    width: "100%",
     "& .MuiInputBase-root": {
       color: "#fff", // Texto branco no input
       backgroundColor: "transparent", // Fundo transparente
@@ -92,16 +69,16 @@ const SleepComponent: React.FC = () => {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-evenly",
-    width:'100%',
-    margin:'10px auto 10px auto'
+    width: "100%",
+    margin: "10px auto 10px auto",
   }));
   const SleepContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    gap:'20px',
-    width:'100%',
+    gap: "20px",
+    width: "100%",
   }));
   const SleepContainerData = styled(Box)(({ theme }) => ({
     display: "flex",
@@ -114,6 +91,7 @@ const SleepComponent: React.FC = () => {
     fontWeight: "bold",
     color: "#fff",
   }));
+
   const SleepResultSubTitle = styled(Typography)(({ theme }) => ({
     fontSize: "14px",
     color: "#fff",
@@ -121,64 +99,56 @@ const SleepComponent: React.FC = () => {
 
   return (
     <>
-      <Container onClick={() => setIsDrowerOpen(true)}>
-        <BedtimeIcon
-          style={{ fill: "#40AED3", width: "40px", height: "40px" }}
-        />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "10px",
-          }}
-        >
-          <Title>Sono</Title>
-          <Description>Como foi sua noite de sono?</Description>
-        </div>
-        <div></div>
-      </Container>
-
+      <DiarysPageComponents
+        Icon={
+          <BedtimeIcon
+            style={{ fill: "#40AED3", width: "40px", height: "40px" }}
+          />
+        }
+        onOpenDrower={() => setIsDrowerOpen(true)}
+        subtitle="Como foi sua noite de sono?"
+        title="Sono"
+      />
       <StyledDrawer
         anchor={"bottom"}
         open={isDrowerOpen}
         onClose={() => setIsDrowerOpen(false)}
       >
         <SleepContainer>
-        <StyledTextField
-          type="number"
-          label="Que horas você foi dormir?"
-          variant="filled"
-          size="small"
-          value={`${sleepHour}`}
-          onChange={(e) => setSleepHour(parseInt(e.target.value) ?? 0)}
-        />
-        <StyledTextField
-          value={`${awakeHour}`}
-          onChange={(e) => setAwakeHour(parseInt(e.target.value) ?? 0)}
-          type="number"
-          label="Que horas você acordou?"
-          variant="filled"
-          size="small"
-        />
-        <StyledSleepResultContainer>
-          {handleReturnIcon()}
-          <SleepContainerData>
-            <SleepResultTitle>
-              Dormiu - {handleGetSleeepedHours()} horas
-            </SleepResultTitle>
-            <SleepResultSubTitle>
-              Seu sono foi{" "}
-              {handleGetSleeepedHours() > 8
-                ? "Ótimo"
-                : handleGetSleeepedHours() > 6
-                ? "Bom"
-                : "Regular"}
-              !
-            </SleepResultSubTitle>
-          </SleepContainerData>
-        </StyledSleepResultContainer></SleepContainer>
+          <StyledTextField
+            type="number"
+            label="Que horas você foi dormir?"
+            variant="filled"
+            size="small"
+            value={`${sleepHour}`}
+            onChange={(e) => setSleepHour(parseInt(e.target.value) ?? 0)}
+          />
+          <StyledTextField
+            value={`${awakeHour}`}
+            onChange={(e) => setAwakeHour(parseInt(e.target.value) ?? 0)}
+            type="number"
+            label="Que horas você acordou?"
+            variant="filled"
+            size="small"
+          />
+          <StyledSleepResultContainer>
+            {handleReturnIcon()}
+            <SleepContainerData>
+              <SleepResultTitle>
+                Dormiu - {handleGetSleeepedHours()} horas
+              </SleepResultTitle>
+              <SleepResultSubTitle>
+                Seu sono foi{" "}
+                {handleGetSleeepedHours() > 8
+                  ? "Ótimo"
+                  : handleGetSleeepedHours() > 6
+                  ? "Bom"
+                  : "Regular"}
+                !
+              </SleepResultSubTitle>
+            </SleepContainerData>
+          </StyledSleepResultContainer>
+        </SleepContainer>
       </StyledDrawer>
     </>
   );

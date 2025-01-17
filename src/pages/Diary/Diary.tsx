@@ -12,6 +12,14 @@ import { Box, IconButton, Typography } from "@mui/material";
 import BottomNav from "../../components/BottomNav";
 import { styled } from "@mui/system";
 import SleepComponent from "../../components/DiarysPageComponents/sleepComponent";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import DiarysPageComponents from "../../components/DiarysPageComponents/DiaryCardComponent";
+import BedtimeIcon from "@mui/icons-material/Bedtime";
+import InterestsIcon from "@mui/icons-material/Interests";
+import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
+import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import DiaryHabitsComponent from "../../components/DiarysPageComponents/DiaryHabitsComponent";
 
 const Diary: React.FC = () => {
   const HeaderSection = styled(Box)(({ theme }) => ({
@@ -41,23 +49,76 @@ const Diary: React.FC = () => {
   return (
     <IonPage>
       <IonContent>
-        <Box bgcolor={"white"}>
+        <Box bgcolor={"white"} sx={{height:'130%'}}>
           <HeaderSection>
             <div
               style={{
                 backgroundColor: "transparent",
                 zIndex: 3,
                 display: "flex",
-                flexDirection: "column",
                 alignItems: "center",
-                justifyContent: "center",
+                justifyContent: "start",
                 position: "relative",
-                width: "100%",
+                width: "95%",
+                paddingLeft: "5%",
+                height: "100%",
+                gap: "10px",
               }}
-            ></div>
+            >
+              <ArrowBackIcon /> Voltar
+            </div>
           </HeaderSection>
-          <div style={{ padding: "5px", height:'90vh' }}>
+          <div
+            style={{
+              padding: "5px",
+              height: "90vh",
+              gap: "20px",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
             <SleepComponent />
+            <DiaryHabitsComponent />
+            <DiarysPageComponents
+              Icon={
+                <InterestsIcon
+                  style={{ fill: "#40AED3", width: "40px", height: "40px" }}
+                />
+              }
+              onOpenDrower={() => {}}
+              subtitle="Como foi seu dia?"
+              title="Emoção do dia"
+            />
+            <DiarysPageComponents
+              Icon={
+                <PermContactCalendarIcon
+                  style={{ fill: "#40AED3", width: "40px", height: "40px" }}
+                />
+              }
+              onOpenDrower={() => {}}
+              subtitle="Aconteceu algo hoje?"
+              title="Episódios do dia"
+            />
+            <DiarysPageComponents
+              Icon={
+                <SelfImprovementIcon
+                  style={{ fill: "#40AED3", width: "40px", height: "40px" }}
+                />
+              }
+              onOpenDrower={() => {}}
+              subtitle="Atitudes de auto cuidado"
+              title="Auto cuidado"
+            />
+            <DiarysPageComponents
+              Icon={
+                <AssignmentIcon
+                  style={{ fill: "#40AED3", width: "40px", height: "40px" }}
+                />
+              }
+              onOpenDrower={() => {}}
+              subtitle="Pensamentos predominante"
+              title="Resumo do dia"
+            />
           </div>
         </Box>
       </IonContent>
