@@ -44,6 +44,7 @@ import Scheduling from "./pages/Scheduling";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import IndicationPage from "./pages/IndicationPage";
+import ScheduleManagement from "./pages/ScheduleManagement";
 
 setupIonicReact();
 
@@ -57,6 +58,7 @@ const App: React.FC = () => (
       </Route>
       <Route path="/home" component={Home} />
       <Route path="/diary" component={Diary} />
+      <Route path="/gerenciamento-de-agenda" component={ScheduleManagement} />
       <Route path="/agendamento" component={Scheduling} />
       <Route path="/indicacoes" component={NotFound} />
       <Route path="/perfil" component={UserProfile} />
